@@ -52,6 +52,26 @@
     \end{itemize}
   \end{frame}
   \begin{frame}
+    \frametitle{Device API}
+    Device API hívható CUDA kernelel belül (\texttt{my\_kernel<<<blocks, threads>>>(...)})
+    \begin{itemize}
+      \item $1$ elem generálása hívásonként
+      \item Generátor állapot: \texttt{*curandState}
+      \item Minden szál saját állapottal rendelkezik (\texttt{curandState} tömb)
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Használat}
+    \begin{itemize}
+      \item Memória foglalás az állapotnak: \texttt{cudaMalloc(**p, size)}
+      \item Memória foglalás az eredménynek: \texttt{cudaMalloc(**p, size)}
+      \item Memória foglalás az eredménynek (host): \texttt{malloc(size)}
+      \item Inicializálás (kernelen belül): \texttt{curand\_init(seed, seq, offset, *state)}
+      \item Generálás (kernelen belül): \texttt{curand\_*(*state)}
+      \item Eredmény visszamásolása: \texttt{cudaMemcpy(*to, *from, size, cudaMemcpyDeviceToHost)}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
     \frametitle{Pszeudorandom sorozat}
     \begin{tikzpicture}
       \begin{axis}[scatter/classes={a={mark=o,draw=black}}]
