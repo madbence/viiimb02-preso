@@ -66,4 +66,20 @@
       \end{axis}
     \end{tikzpicture}
   \end{frame}
+  \begin{frame}
+    \frametitle{Egyenletes eloszlás}
+    \begin{tikzpicture}
+      \begin{axis}[ymin=0,ymax=200000,enlargelimits=false,xmin=0,xmax=100]
+        \addplot table[col sep=comma] {uniform-hist.csv};
+      \end{axis}
+    \end{tikzpicture}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Normál eloszlás}
+    \begin{tikzpicture}
+      \begin{axis}
+        \addplot table[col sep=comma] {normal-hist.csv};
+      \end{axis}
+    \end{tikzpicture}
+  \end{frame}
 \end{document}
