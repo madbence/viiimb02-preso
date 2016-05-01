@@ -14,13 +14,14 @@
   \frame{\titlepage}
   \begin{frame}
     \frametitle{cuRAND}
-    Az NVIDIA megoldása véletlen számok generálására
+    A cuRAND könyvtár az NVIDIA megoldása véletlen számok generálására
     \begin{itemize}
       \item Host API
       \item Device API
+      \item kb 9 féle generátor
       \item Pszeudorandom sorozat: statisztikailag véletlen számok
       \item Kvázirandom sorozat (alacsony diszkrepanciájú): egy $n$-dimenziós teret egyenletesen töltenek ki
-      \item Egyenletes/normál/poisson eloszlás
+      \item Egyenletes/normál/poisson/stb eloszlás
     \end{itemize}
   \end{frame}
   \begin{frame}
@@ -47,7 +48,7 @@
       \begin{itemize}
         \item \texttt{curandGenerate*(gen, *out, n)}
       \end{itemize}
-      \item Eredmény visszamásolása host memóriába: \texttt{cudaMemcpy(to, from, size, cudaMemcpyDeviceToHost)}
+      \item Eredmény visszamásolása host memóriába: \texttt{cudaMemcpy(*to, *from, size, cudaMemcpyDeviceToHost)}
     \end{itemize}
   \end{frame}
   \begin{frame}
