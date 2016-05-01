@@ -44,6 +44,9 @@
           \item \texttt{curandSetQuasiRandomGeneratorDimensions(gen, dimensions)}
         \end{itemize}
       \item Generálás
+      \begin{itemize}
+        \item \texttt{curandGenerate*(gen, *out, n)}
+      \end{itemize}
       \item Eredmény visszamásolása host memóriába: \texttt{cudaMemcpy(to, from, size, cudaMemcpyDeviceToHost)}
     \end{itemize}
   \end{frame}
