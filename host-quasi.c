@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
   hostData = (float *)calloc(n, sizeof(float));
   CUDA_CALL(cudaMalloc((void **)&devData, n*sizeof(float)));
-  CURAND_CALL(curandCreateGenerator(&gen, CURAND_RNG_QUASI_DEFAULT));
+  CURAND_CALL(curandCreateGenerator(&gen, CURAND_RNG_QUASI_SCRAMBLED_SOBOL32));
   CURAND_CALL(curandSetQuasiRandomGeneratorDimensions(gen, 2));
   CURAND_CALL(curandGenerateUniform(gen, devData, n));
   CUDA_CALL(cudaMemcpy(hostData, devData, n * sizeof(float), cudaMemcpyDeviceToHost));
