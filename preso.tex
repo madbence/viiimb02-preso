@@ -33,6 +33,21 @@
     \end{itemize}
   \end{frame}
   \begin{frame}
+    \frametitle{Használat}
+    \begin{itemize}
+      \item \texttt{curandCreateGenerator(*gen, type)}
+      \item Host memória foglalás \texttt{malloc(size)}
+      \item Device memória foglalás \texttt{cudaMalloc(**p, size)}
+      \item Inicializálás
+        \begin{itemize}
+          \item \texttt{curandSetPseudoRandomGeneratorSeed(gen, seed)}
+          \item \texttt{curandSetQuasiRandomGeneratorDimensions(gen, dimensions)}
+        \end{itemize}
+      \item Generálás
+      \item Eredmény visszamásolása host memóriába: \texttt{cudaMemcpy(to, from, size, cudaMemcpyDeviceToHost)}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
     \frametitle{Pszeudorandom sorozat}
     \begin{tikzpicture}
       \begin{axis}[scatter/classes={a={mark=o,draw=black}}]
