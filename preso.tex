@@ -1,0 +1,34 @@
+\documentclass[xetex]{beamer}
+
+\usepackage{xltxtra}
+\usepackage{xcolor}
+
+\usetheme{Rochester}
+\beamertemplatenavigationsymbolsempty
+
+\title{cuRAND vs OpenCL}
+\author{Dányi Bence\\ Kálmán Viktor}
+
+\begin{document}
+  \frame{\titlepage}
+  \begin{frame}
+    \frametitle{cuRAND}
+    Az NVIDIA megoldása véletlen számok generálására
+    \begin{itemize}
+      \item Host API
+      \item Device API
+      \item Pszeudorandom sorozat: statisztikailag véletlen számok
+      \item Kvázirandom sorozat (alacsony diszkrepanciájú): egy $n$-dimenziós teret egyenletesen töltenek ki
+      \item Egyenletes/normál/poisson eloszlás
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Host API}
+    A cuRAND API hívható hoszt környezetben is
+    \begin{itemize}
+      \item $n$ szám generálása (párhuzamosan)
+      \item fallback CPU generátorra, ha nem érhető el CUDA
+      \item minden szükséges paraméter egy \texttt{curandGenerator\_t}-ben
+    \end{itemize}
+  \end{frame}
+\end{document}
