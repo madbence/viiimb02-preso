@@ -2,6 +2,7 @@
 
 \usepackage{xltxtra}
 \usepackage{xcolor}
+\usepackage{pgfplots}
 
 \usetheme{Rochester}
 \beamertemplatenavigationsymbolsempty
@@ -30,5 +31,21 @@
       \item fallback CPU generátorra, ha nem érhető el CUDA
       \item minden szükséges paraméter egy \texttt{curandGenerator\_t}-ben
     \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Pszeudorandom sorozat}
+    \begin{tikzpicture}
+      \begin{axis}[scatter/classes={a={mark=o,draw=black}}]
+        \addplot[scatter,only marks,scatter src=explicit symbolic,row sep=crcr] table[meta=label,col sep=comma] {pseudo-points.csv};
+      \end{axis}
+    \end{tikzpicture}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Alacsony diszkrepanciás sorozat}
+    \begin{tikzpicture}
+      \begin{axis}[scatter/classes={a={mark=o,draw=black}}]
+        \addplot[scatter,only marks,scatter src=explicit symbolic,row sep=crcr] table[meta=label,col sep=comma] {quasi-points.csv};
+      \end{axis}
+    \end{tikzpicture}
   \end{frame}
 \end{document}

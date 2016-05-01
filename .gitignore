@@ -1,3 +1,7 @@
+*
+!*/
+!*.*
+!Makefile
 *.pdf
 *.aux
 *.log
@@ -5,3 +9,4 @@
 *.out
 *.snm
 *.toc
+*.csv
