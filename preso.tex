@@ -7,11 +7,55 @@
 \usetheme{Rochester}
 \beamertemplatenavigationsymbolsempty
 
-\title{cuRAND vs OpenCL}
+\title{cuRAND}
 \author{Dányi Bence\\ Kálmán Viktor}
 
 \begin{document}
   \frame{\titlepage}
+  \begin{frame}
+    \frametitle{CUDA}
+    \framesubtitle{Bevezető}
+    \begin{itemize}
+      \item Párhuzamos feldolgozás platform és programozási modell
+      \item GPGPU
+      \pause
+      \item Alacsony és magas szintű API
+        \begin{itemize}
+          \item CUDA driver API
+          \item CUDA runtime API
+        \end{itemize}
+    \end{itemize}
+
+    \begin{center}
+      \includegraphics[width=0.5\textwidth]{figures/cudapi.png}
+    \end{center}
+  \end{frame}
+  \begin{frame}
+    \frametitle{CUDA}
+    \framesubtitle{Bevezető}
+    \begin{itemize}
+      \item C, C++, Fortran támogatás
+      \item Saját LLVM alapú fordító (nvcc)
+      \item Python (PyCUDA), Perl, Java, Ruby wrapper
+      \item Rengeteg könyvtár: cuDNN (neurális hálók), cuFFT, nvGRAPH, FFmpeg, cuBLAS
+    \end{itemize}
+
+  \end{frame}
+  \begin{frame}
+    \frametitle{CUDA}
+    \framesubtitle{Negatívumok}
+    \begin{itemize}
+      \item C++-ként fordít -> valid C, de nem valid C++ elhasal
+      \item Nincs kivételkezelés
+      \item Host és device közötti másolgatás
+      \item Csak NVIDIA
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{CUDA}
+    \framesubtitle{Workflow}
+    \includegraphics[width=10cm]{figures/cuda_workflow.png}
+  \end{frame}
   \begin{frame}
     \frametitle{cuRAND}
     A cuRAND könyvtár az NVIDIA megoldása véletlen számok generálására
@@ -102,5 +146,27 @@
         \addplot table[col sep=comma] {normal-hist.csv};
       \end{axis}
     \end{tikzpicture}
+  \end{frame}
+  \begin{frame}
+    \frametitle{CUDA vs Intel MKL}
+    \framesubtitle{Összehasonlítás}
+    \includegraphics[width=1.0\textwidth]{figures/cuda_vs_mkl.png}
+    \\
+    \pause
+    \begin{center}
+      NVIDIA Tesla K40M (2880 CUDA cores) \\
+      vs \\
+      Intel Xeon E5-2698 (16 cores @ 3.6 Ghz)
+    \end{center}
+  \end{frame}
+  \begin{frame}
+    \frametitle{CUDA vs Intel MKL}
+    \framesubtitle{Emberközelibb összehasonlítás}
+    \includegraphics[width=1.0\textwidth]{figures/tesla.png}
+  \end{frame}
+  \begin{frame}
+    \frametitle{CUDA vs Intel MKL}
+    \framesubtitle{Emberközelibb összehasonlítás}
+    \includegraphics[width=1.0\textwidth]{figures/xeon.png}
   \end{frame}
 \end{document}
